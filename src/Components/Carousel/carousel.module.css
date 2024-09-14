@@ -1,0 +1,17 @@
+.hero__img {
+  position: relative; /* Establishes positioning context */
+}
+
+.hero__img::before {
+  content: ""; /* Necessary for pseudo-element to appear */
+  position: absolute; /* Positions the pseudo-element absolutely */
+  bottom: 0; /* Aligns the bottom of the pseudo-element with the bottom of .hero__img */
+  width: 100%; 
+  height: 300px; 
+  background-image: linear-gradient(
+    to bottom,
+    rgba(225, 225, 225, 0), /* Starting color (transparent) */
+     rgba(255, 255, 255) /* Ending color (white) */
+  );
+}
+ 
