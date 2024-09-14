@@ -51,8 +51,7 @@
 // };
 
 // *****************************************************************
-
-import { Type } from "./action.type";
+import { Type } from "./action.type"; // Ensure action.type.js exists and is correct
 
 export const initialState = {
   basket: [],
@@ -107,7 +106,8 @@ export const reducer = (state, action) => {
       };
 
     default:
-      // Return current state if action type is not recognized
       return state;
   }
 };
+
+

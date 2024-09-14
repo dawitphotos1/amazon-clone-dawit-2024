@@ -1,11 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './index.css'; // Ensure this path is correct
-import App from "./App";
-import { DataProvider } from './Components/DataProvider/DataProvider';
-import { initialState, reducer } from "./Utility/reducer";
+import App from "./App"; // Ensure this path is correct
+import { DataProvider } from "./Components/DataProvider/DataProvider"; // Ensure this path is correct
+import { reducer, initialState } from "./Utility/reducer"; // Updated path
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <DataProvider reducer={reducer} initialState={initialState}>

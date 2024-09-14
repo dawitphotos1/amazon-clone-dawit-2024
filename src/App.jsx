@@ -1,10 +1,30 @@
+// src/App.jsx
 
-import Routing from './Router.jsx';
-// import CarouselEffect from "./Components/Carousel/CarouselEffect.jsx";
-// import "./App.css"; // Uncomment if you have styles
+// import Router from "./Router"; // Correct import path
+
+// function App() {
+//   return (
+//     <div>
+//       <Router />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+// src/App.jsx
+
+import Router from './Router';
+
 
 function App() {
-  return <Routing />;
+  return (
+    <div>
+      <Router />
+    </div>
+  );
 }
 
 export default App;
+
