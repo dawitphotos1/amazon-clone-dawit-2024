@@ -8,25 +8,25 @@ import Loader from '../../Components/Loader/Loader';
 import { productUrl } from "../../Api/endPoints";
 
 function Results() {
-  const [results, setResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const { categoryName } = useParams();
+  const [results, setResults] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const { categoryName } = useParams()
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
     axios
       .get(`${productUrl}/products/category/${categoryName}`)
       .then((res) => {
-        setResults(res.data);
-        setIsLoading(false);
+        setResults(res.data)
+        setIsLoading(false)
       })
       .catch((err) => {
-        console.error("API Error:", err);
-        setError("Failed to fetch results.");
-        setIsLoading(false);
-      });
-  }, [categoryName]);
+        console.error("API Error:", err)
+        setError("Failed to fetch results.")
+        setIsLoading(false)
+      })
+  }, [categoryName])
 
   return (
     <LayOut>

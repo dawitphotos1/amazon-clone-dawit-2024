@@ -7,8 +7,8 @@ import Payment from './Pages/Payment/Payment';
 import Orders from './Pages/Orders/Orders';
 import Cart from './Pages/Cart/Cart';
 import Results from './Pages/Results/Results';
-import ProductDetail from './Pages/ProductDetail/ProductDetail'; // Corrected import path
-// import NotFound from './Pages/NotFound/NotFound'; // Uncomment when NotFound component is created
+import ProductDetail from './Pages/ProductDetail/ProductDetail'; 
+
 
 function Routing() {
   return (

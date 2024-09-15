@@ -9,13 +9,12 @@ import Loader from '../../Components/Loader/Loader';
 
 function ProductDetail() {
   const [product, setProduct] = useState(null); // Initialize with null to handle loading
-  const [isLoading, setIsLoading] = useState(true); // Start as loading
+  const [isLoading, setIsLoading] = useState(false); // Start as loading
   const { productId } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    axios
-      .get(`${productUrl}/products/${productId}`) // Use template literals for dynamic URL
+    axios.get(`${productUrl}/products/${productId}`) // Use template literals for dynamic URL
       .then((res) => {
         setProduct(res.data);
         setIsLoading(false);
@@ -23,14 +22,12 @@ function ProductDetail() {
       .catch((err) => {
         console.error("Error fetching product data:", err); // Improved error logging
         setIsLoading(false);
-      });
-  }, [productId]); // Include productId in the dependency array to refetch on change
+      })
+  }, [])
 
   return (
     <LayOut>
-      {isLoading ? (
-        <Loader />
-      ) : product ? (
+      {isLoading ? (<Loader />) : product ? (
         <ProductCard
           product={product}
           flex={true}
