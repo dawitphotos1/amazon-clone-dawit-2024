@@ -9,7 +9,7 @@ import { Type } from "../../Utility/action.type";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 function Cart() {
-  const [{ basket }, dispatch] = useContext(DataContext);
+  const [{ basket },use, dispatch] = useContext(DataContext);
 
   // Calculate total price of items in the basket
   const total = basket.reduce(

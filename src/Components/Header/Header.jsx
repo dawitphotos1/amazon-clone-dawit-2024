@@ -99,11 +99,13 @@ import LowerHeader from "./LowerHeader";
 import { DataContext } from "../DataProvider/DataProvider";
 
 const Header = () => {
-  const { state: basket, dispatch } = useContext(DataContext);
-  const totalItem = Array.isArray(basket)
-    ? basket.reduce((amount, item) => item.amount + amount, 0)
-    : 0;
-
+  const [{basket} , dispatch] = useContext(DataContext);
+  console.log(basket);
+  const totalItem =basket?.reduce((amount, item) =>{
+    return item.amount + amount;
+  } , 0)
+   
+ console.log(totalItem);
   return (
     <section className={classes.fixed}>
       <div className={classes.header__container}>

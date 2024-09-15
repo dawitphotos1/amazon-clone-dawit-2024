@@ -6,6 +6,7 @@ import axios from "axios";
 import { productUrl } from '../../Api/endPoints';
 import ProductCard from '../../Components/Product/ProductCard';
 import Loader from '../../Components/Loader/Loader';
+import classes from "./ProductDetail.module.css";
 
 function ProductDetail() {
   const [product, setProduct] = useState(null); // Initialize with null to handle loading
@@ -27,16 +28,21 @@ function ProductDetail() {
 
   return (
     <LayOut>
-      {isLoading ? (<Loader />) : product ? (
-        <ProductCard
-          product={product}
-          flex={true}
-          renderDesc={true}
-          renderAdd={true}
-        />
-      ) : (
-        <p>No product found</p> // Handle case where product data is not found
-      )}
+      <div>
+        {isLoading ? (
+          <Loader />
+        ) : product ? (
+          <ProductCard
+            product={product}
+            flex={true}
+            renderDesc={true}
+            renderAdd={true}
+            className={classes.card_container}
+          />
+        ) : (
+          <p>No product found</p> // Handle case where product data is not found
+        )}
+      </div>
     </LayOut>
   );
 }

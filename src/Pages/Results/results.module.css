@@ -12,14 +12,14 @@
 }
 
 
-.img_container {
+/* .img_container {
   width: 100%;
   height: auto; 
   object-fit: cover; 
   
-}
+} */
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
     .products_container {
         gap: 30px;
     }
@@ -38,8 +38,8 @@
         gap: 10px;
         margin: 50px auto;
     }
-}
+} */
 
-.products_container section {
+/* .products_container section {
     margin: 0 auto;
-}
+} */
