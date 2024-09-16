@@ -1,7 +1,6 @@
-
- /* Product.module.css */
+/* Product.module.css */
 /* Container for the products section */
- .Products_container {
+.Products_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -10,21 +9,21 @@
 }
 
 /* Styles for each product card */
- .card_container {
+.card_container {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 10px;
   background-color: white;
   border-radius: 8px;
   width: calc(20% - 20px); /* Adjust width to fit 5 cards per row */
-   box-sizing: border-box;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
 } 
 
 /* Ensure images fit within the card */
- .card_container img {
+.card_container img {
   width: 200px;
   height: 300px;
   border-radius: 8px;
@@ -45,9 +44,17 @@
 .card_container .rating small {
   margin-left: 10px;
 }
+.card_container {
+  /* Ensure the container has some size or content to see the hover effect */
+  position: relative;
+  padding: 20px;
+  border: 1px solid #ddd;
+  /* Optional: Add more styling here */
+}
 
-.card_container .button {
-  background-color: #007bff;
+.button {
+  display: none;
+  background-color: #007bff; /* Default color */
   color: white;
   border: none;
   border-radius: 4px;
@@ -56,9 +63,74 @@
   transition: background-color 0.3s ease;
 }
 
-.card_container .button:hover {
-  background-color:darkgoldenrod;
+.card_container:hover .button {
+  display: block;
+  background-color: darkgoldenrod; /* Color when hovered */
+}
+
+
+.product_flexed {
+  box-shadow: none;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  width: 100%;
+}
+
+.product_flexed h3 {
+  padding: 20px 0;
+}
+
+.product_flexed .button {
+  display: block;
+  position: static;
+  width: 150px;
+  margin-right: 40px;
+}
+
+.product_flexed {
+  height: 50vh;
+}
+
+.product_flexed img {
+  padding: 20px;
+  width: 300px !important;
+  height: auto;
+}
+
+
+
+ @media screen and (max-width: 1200px) {
+  .card_container {
+    width: calc(25% - 20px); /* Adjust for slightly smaller screens */
+   }
 } 
+
+ @media screen and (max-width: 992px) {
+  .card_container {
+    width: calc(33.33% - 20px); /* 3 cards per row for medium screens */
+   }
+}  
+
+ @media screen and (max-width: 768px) {
+  .card_container {
+    width: calc(50% - 20px); /* 2 cards per row for smaller screens */
+  }
+} 
+
+ @media screen and (max-width: 480px) {
+  .card_container {
+    width: calc(100% - 20px); /* Full width on very small screens */
+   }
+}
+ @media (max-width: 768px) {
+  .product__fixed {
+    display: flex;
+    flex-direction: column; /* Changed non-breaking space to regular space */
+   }
+} 
+
 
 /* Responsive adjustments for product cards */
  /* @media screen and (max-width: 1200px) {
