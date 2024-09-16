@@ -261,9 +261,9 @@ import Rating from "@mui/material/Rating";
 
 function ProductCard({
   product,
-  flex ,
-  renderDesc ,
-  renderAdd ,
+  flex = false,
+  renderDesc = false,
+  renderAdd = false,
 }) {
   const [state, dispatch] = useContext(DataContext);
 

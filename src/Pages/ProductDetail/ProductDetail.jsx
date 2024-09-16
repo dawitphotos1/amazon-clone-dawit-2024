@@ -37,7 +37,7 @@ function ProductDetail() {
             flex={true}
             renderDesc={true}
             renderAdd={true}
-            className={classes.card_container}
+            
           />
         ) : (
           <p>No product found</p> // Handle case where product data is not found

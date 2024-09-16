@@ -71,26 +71,30 @@ function Product() {
       });
   }, []);
 
-  if (isLoading) return <Loader />; // Show loader while loading
+    
+  // if (isLoading) return <Loader />; // Show loader while loading
 
-  if (error) return <p>{error}</p>; // Show error message if an error occurs
+  // if (error) return <p>{error}</p>; // Show error message if an error occurs
 
   return (
-    <section className={classes.Products_container}>
-      {products.length > 0 ? (
-        products.map((singleProduct) => (
-          <ProductCard
-            key={singleProduct.id}
-            product={singleProduct}
-            renderAdd={true}
-          />
-        ))
-      ) : (
-        <p>No products available</p>
-      )}
-    </section>
-  );
-}
+    <>
+    {
+        isLoading?(<Loader/>):(<section className={classes.Products_container}>
+        {
+           products?.map((singleProduct) => {
+          return  <ProductCard renderAdd={true} product={singleProduct}
+              key={singleProduct.id}/>
+         })
+        } 
+           </section>)
+}   
+            </>
+      )
+      
+      }
+  
 
-export default Product;
+
+
+export default Product
 
