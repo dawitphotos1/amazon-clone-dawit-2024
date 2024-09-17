@@ -9,6 +9,7 @@ import img2 from "./img2.jpg";
 import img6 from "./img6.jpg";
 import img24 from "./img24.jpg";
 
+
 export const img = [img100, img101, img102, img103, img104, img105, img44,img2,img6,img24]
 
 //   img94,

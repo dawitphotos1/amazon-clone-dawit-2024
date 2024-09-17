@@ -151,7 +151,7 @@ cart_product{
     align-items: center;
     gap: 20px;
     border: 1px solid rgb(193,193,193);
-    background-color: rgb(242,241,241); /* Keep the background of the container */
+    background-color: rgb(242,241,241);
     border-radius: 5px;
 }
 
@@ -159,19 +159,33 @@ cart_product{
     text-align: center;
     width: 100%;
     border: none;
-    background-color: darkgoldenrod; /* Background color for the link */
+    background-color: darkgoldenrod;
     border-radius: 5px;
     padding: 10px;
     text-decoration: none;
-    color: white; /* Text color for contrast */
-    font-weight: bold; /* Make text bold for better visibility */
-    display: block; /* Ensure the link takes up the full width */
+    color: white;
+    font-weight: bold;
+    display: block;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .subtotal a:hover {
-    background-color: #b8860b; /* Darker shade for hover effect */
+    background-color: #b8860b;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Ensure button icons have consistent styling */
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: transparent; /* Ensure buttons are transparent for consistent hover effects */
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #b8860b; /* Example hover effect for buttons */
 }
 
 .subtotal > div,
@@ -179,7 +193,14 @@ cart_product{
     display: flex;
     gap: 20px;
 }
+.subtotal p {
+    font-size: 1.5rem; /* Increase font size for "Subtotal" */
+    font-weight: bold; /* Optional: make it bold */
+}
 
+.subtotal small {
+    font-size: 1.2rem; /* Increase font size for "This order contains a gift" */
+}
 @media screen and (max-width: 968px) {
     .container {
         flex-direction: column;
