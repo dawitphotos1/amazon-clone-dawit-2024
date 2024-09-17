@@ -91,7 +91,7 @@
 
 // *******************************************************
 
-import React, { useContext } from "react";
+import  { useContext } from "react";
 import { DataContext } from "../../Components/DataProvider/DataProvider";
 import LayOut from "../../Components/Layout/LayOut";
 import ProductCard from "../../Components/Product/ProductCard";

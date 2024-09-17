@@ -201,6 +201,7 @@ cart_product{
 .subtotal small {
     font-size: 1.2rem; /* Increase font size for "This order contains a gift" */
 }
+
 @media screen and (max-width: 968px) {
     .container {
         flex-direction: column;
