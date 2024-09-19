@@ -1,8 +1,8 @@
 
 import React, { useContext, useState} from 'react'
 import classes from './signUp.module.css'
-import { Link } from 'react-router-dom';
-import { auth } from '../../Utility/firebse';
+import { Link, useNavigate } from "react-router-dom";
+import { auth} from '../../Utility/firebse';
 import {signInWithEmailAndPassword,createUserWithEmailAndPassword} from "firebase/auth";
 import { ClipLoader} from 'react-spinners';
 import { DataContext } from '../../Components/DataProvider/DataProvider';
@@ -18,8 +18,8 @@ function Auth() {
       signUp:false
   })
   const [{user},dispatch]=useContext(DataContext)
-
-  console.log(user);
+  const navigate=useNavigate()
+  // console.log(user);
 
   const authHandler = async(e)=>{
    e.preventDefault();
@@ -34,6 +34,7 @@ function Auth() {
           user:userInfo.user
         })
         setLoading(({ ...loading, signin: false }));
+        navigate("/")
        }).catch((err)=>{
         setError(err.message)
         setLoading({ ...loading, signin: false });
@@ -47,6 +48,7 @@ function Auth() {
          user: userInfo.user,
        });
        setLoading({ ...loading, signUp: false });
+       navigate("/");
     }).catch((err)=>{
       setError(err.message);
       setLoading({ ...loading, signUp: false });

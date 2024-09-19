@@ -5,11 +5,11 @@ import { SlLocationPin } from "react-icons/sl"; // Import icons
 import { BsSearch, BsCartPlus } from "react-icons/bs";
 import LowerHeader from './LowerHeader'; // Import LowerHeader component
 import { DataContext } from "../DataProvider/DataProvider"; // Import DataContext
-
+import {auth} from '../../Utility/firebse'
 
 const Header = () => {
   // Use the context to get the basket and dispatch function
-  const [ {basket} , dispatch ] = useContext(DataContext);
+  const [ {user,basket} , dispatch ] = useContext(DataContext);
 
   // Calculate the total number of items in the basket
   const totalItem = basket?.reduce((amount, item) => {
@@ -42,14 +42,12 @@ const Header = () => {
 
         {/* Search section */}
         <div className={classes.search}>
-          <select aria-label="Category">
+          <select name="" id="">
             <option value="">All</option>
             {/* Add more options as needed */}
           </select>
-          <input type="text" aria-label="Search" />
-          <button aria-label="Search button">
-            <BsSearch size={25} />
-          </button>
+          <input type="text" />
+          <BsSearch size={38} />
         </div>
 
         {/* Other section */}
@@ -68,9 +66,20 @@ const Header = () => {
               {/* Add more options as needed */}
             </select>
           </Link>
-          <Link to="/signin">
-            <p>Sign In</p>
-            <span>Account & Lists</span>
+          <Link to={!user && "/auth"}>
+            <div>
+              {user ? (
+                <>
+                  <p>Hello {user?.email?.split("@")[0]}</p>
+                  <span onClick={()=>auth.signOut()}>Sign Out</span>
+                </>
+              ) : (
+                <>
+                  <p>Hello,Sign In</p>
+                  <span>Account & Lists</span>
+                </>
+              )}
+            </div>
           </Link>
           <Link to="/orders">
             <p>Returns</p>

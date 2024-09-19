@@ -1,8 +1,10 @@
-// vite.config.js
+
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
+// Set the base path if deploying to a subdirectory, otherwise set to '/'
 export default defineConfig({
-  base: "/amazon-clone-dawit-2024/", // Added comma here
+  base: "/", // Change this if needed for subdirectory deployment
   plugins: [react()],
 });
