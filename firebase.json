@@ -11,5 +11,24 @@
         "*.local"
       ]
     }
-  ]
+  ],
+  "emulators": {
+    "functions": {
+      "host": "127.0.0.1",
+      "port": 5002 // Change this to any available port
+    },
+    "ui": {
+      "host": "127.0.0.1",
+      "port": 4004 // Change if needed
+    },
+    "hub": {
+      "host": "127.0.0.1",
+      "port": 4401 // Change if needed
+    },
+    "logging": {
+      "host": "127.0.0.1",
+      "port": 4501 // Change if needed
+    }
+  }
 }
+

@@ -20,17 +20,17 @@ export const reducer = (state, action) => {
         };
        }else {
         const updatedBasket= state.basket.map((item)=>{
-         return item.id ===action.item.id? {...item,amount:item.amount +1} :item
+         return item.id ===action.item.id? {...item,amount:item.amount +1} :item;
         })
         return {
             ...state,
-            basket :updatedBasket
-        }
+            basket :updatedBasket,
+        };
        }
 
         case Type.REMOVE_FROM_BASKET:
-          const index=state.basket.findIndex(item=>item.id===action.id)
-          let newBasket = [...state.basket]
+          const index=state.basket.findIndex((item)=>item.id===action.id);
+          let newBasket = [...state.basket];
 
           if (index >=0){
             if(newBasket[index].amount >1){
@@ -42,8 +42,12 @@ export const reducer = (state, action) => {
  return {
    ...state,
    basket: newBasket,
- }
-
+ };
+  case Type.EMPTY_BASKET:
+    return{
+      ...state,
+      basket:[]
+    };
    case Type.SET_USER:
     return{
       ...state,

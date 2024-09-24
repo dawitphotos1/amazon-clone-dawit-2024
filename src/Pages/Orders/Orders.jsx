@@ -1,16 +1,59 @@
-
+import React,{useContext,useState,useEffect} from 'react';
 import LayOut from '../../Components/Layout/LayOut';
-// import classes from "./Orders.module.css"; // Uncomment and use if you have styles
+import classes from './Orders.module.css'
+import { db } from '../../Utility/firebse';
+import { DataContext } from '../../Components/DataProvider/DataProvider';
+import ProductCard from '../../Components/Product/ProductCard';
 
 function Orders() {
+  const [{user},dispatch]=useContext(DataContext);
+  const [orders,setOrders]=useState([])
+
+  useEffect(()=>{
+   if(user){
+    db.collection("users").doc(user.uid).collection("orders").orderBy("created","desc").onSnapshot((snapshot)=>{
+      console.log(snapshot);
+      setOrders(
+        snapshot.docs.map((doc)=>({
+          id:doc.id,
+          data:doc.data(),
+        }))
+      );
+    });
+   }else {
+    setOrders([])
+   }
+  },[]);
+
   return (
     <LayOut>
-      <div className="orders-container">
-        {" "}
-        {/* Add a class if styles are uncommented */}
-        <h1>Orders</h1>
-        {/* Add more content here */}
-      </div>
+      <section className={classes.container}>
+        <div className={classes.orders__container}>
+          <h2>Your Orders</h2>
+          {orders?.length == 0 && <div style={{padding:"20px",color:"red"}}>
+              You don't have any order yet </div>}
+          {/* List of Ordered Items */}
+          <div>{
+            orders?.map((eachOrder,i)=>{
+              return(
+              <div key={i}>
+                <hr />
+              <p>Order ID:{eachOrder?.id} </p>
+              {
+                eachOrder?.data?.basket?.map(order =>(
+                                     
+                <ProductCard  flex={true} product={order} key={order.id}
+                  />
+                 )
+                 )}
+              
+              </div>
+
+              );
+           })}
+           </div>
+        </div>
+      </section>
     </LayOut>
   );
 }
