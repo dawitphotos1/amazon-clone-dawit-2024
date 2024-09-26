@@ -115,7 +115,7 @@
 
  @media screen and (max-width: 768px) {
   .card_container {
-    width: calc(50% - 20px); /* 2 cards per row for smaller screens */
+    width: calc(100% - 20px); /* 1 cards per row for smaller screens */
   }
 } 
 
