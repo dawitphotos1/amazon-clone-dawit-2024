@@ -15,7 +15,7 @@
   margin: 10px;
   background-color: white;
   border-radius: 8px;
-  width: calc(20% - 20px); /* Adjust width to fit 5 cards per row */
+  width: calc(25% - 20px); /* Adjust width to fit 4 cards per row */
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
