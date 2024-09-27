@@ -9,7 +9,7 @@ function LowerHeader({ classes }) {
         <li>
           <AiOutlineMenu aria-label="Menu" />
           <Link to="/all" aria-label="All categories">
-            <p>All</p>
+            <h>All</h>
           </Link>
         </li>
         <li>

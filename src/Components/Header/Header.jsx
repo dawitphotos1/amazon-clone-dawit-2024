@@ -70,12 +70,12 @@ const Header = () => {
             <div>
               {user ? (
                 <>
-                  <p>Hello {user?.email?.split("@")[0]}</p>
+                  <h6>Hello {user?.email?.split("@")[0]}</h6>
                   <span onClick={()=>auth.signOut()}>Sign Out</span>
                 </>
               ) : (
                 <>
-                  <p>Hello,Sign In</p>
+                  <h6>Hello,Sign In</h6> 
                   <span>Account & Lists</span>
                 </>
               )}
