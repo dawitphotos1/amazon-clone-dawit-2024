@@ -40,6 +40,7 @@ function Payment() {
    const response = await axiosInstance({
     method: "POST",
     url:`/payment/create?total=${totalItem * 100}`,
+    // url: /payment/create?total=${parseInt(total * 100)},
     });
     
       const clientSecret = response.data?.clientSecret;
