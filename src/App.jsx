@@ -13,33 +13,35 @@
 // export default App;
 
 
+// 
 // src/App.jsx
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react';
 import Router from './Router.jsx';
 import { DataContext } from './Components/DataProvider/DataProvider.jsx';
 import { Type } from './Utility/action.type.js';
-import { auth } from './Utility/firebse';
+import { auth } from './Utility/firebse'; // Ensure this is the correct import
 
 function App() {
-  const [{user},dispatch]=useContext(DataContext)
-   useEffect(()=>{
-    auth.onAuthStateChanged((authUser)=>{
-      if (authUser){
-        // console.log(authUser);
+  const [{ user }, dispatch] = useContext(DataContext);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((authUser) => {
+      if (authUser) {
         dispatch({
-          type:Type.SET_USER,
-          user:authUser
-        })
-      }else{
+          type: Type.SET_USER,
+          user: authUser,
+        });
+      } else {
         dispatch({
           type: Type.SET_USER,
           user: null,
         });
       }
-    })
-      
-   },[])
+    });
 
+    // Cleanup function
+    return () => unsubscribe();
+  }, [dispatch]); // Include dispatch as a dependency
 
   return (
     <div>
@@ -49,4 +51,3 @@ function App() {
 }
 
 export default App;
-
